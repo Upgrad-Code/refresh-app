@@ -1,7 +1,7 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer, useContext } from 'react';
 import { AJAX } from '../../helpers/helperFns';
 import { REST_COUNTRIES_API } from '../../helpers/config';
-import { countriesReducer, iState } from '../../reducers/countriesReducer';
+import { countriesContext } from '../../contexts/countriesContext';
 import {
   fetchStart,
   fetchSuccess,
@@ -9,7 +9,7 @@ import {
 } from '../../actions/fetch-actions';
 
 const HomePage = () => {
-  const [state, dispatch] = useReducer(countriesReducer, iState);
+  const { state, dispatch } = useContext(countriesContext);
   console.log(state);
 
   useEffect(() => {
