@@ -1,15 +1,13 @@
 import React, { useContext } from 'react';
 import { countriesContext } from '../../contexts/countriesContext';
 
-const HomePage = () => {
+const ShopPage = () => {
   const { state, dispatch } = useContext(countriesContext);
-  console.log(state);
-
+  console.log(state, 'Shop Page...');
   return (
     <div>
-      <h1>HOME PAGE</h1>
+      <h1>SHOPPAGE</h1>
     </div>
   );
 };
-
-export default HomePage;
+export default ShopPage;
