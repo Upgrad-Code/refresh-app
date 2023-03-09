@@ -10,7 +10,6 @@ import {
 
 const HomePage = () => {
   const [state, dispatch] = useReducer(countriesReducer, iState);
-  console.log(state);
 
   useEffect(() => {
     (async () => {
@@ -19,7 +18,7 @@ const HomePage = () => {
         const data = await AJAX(`${REST_COUNTRIES_API}/all`);
         dispatch(fetchSuccess([...data]));
       } catch (err) {
-        dispatch(fetchSuccess([...data]));
+        dispatch(fetchError(err));
       }
     })();
   }, []);
