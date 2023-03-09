@@ -10,6 +10,7 @@ import {
 
 const HomePage = () => {
   const [state, dispatch] = useReducer(countriesReducer, iState);
+  console.log(state);
 
   useEffect(() => {
     (async () => {
