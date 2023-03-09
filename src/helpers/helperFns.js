@@ -1,4 +1,4 @@
-const TIMEOUT_SEC = 10;
+import { TIMEOUT_SEC } from './config';
 
 const timeout = (sec) => {
   return new Promise((_, reject) => {
@@ -10,7 +10,7 @@ const timeout = (sec) => {
   });
 };
 
-const AJAX = async (url, uploadData = undefined) => {
+export const AJAX = async (url, uploadData = undefined) => {
   try {
     const fetchPro = uploadData
       ? fetch(url, {
