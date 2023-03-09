@@ -29,3 +29,24 @@ export const AJAX = async (url, uploadData = undefined) => {
     throw err;
   }
 };
+
+export const mappedArray = (arr, elem, index) => {
+  if (!Array.isArray(arr)) throw new Error('Parameter must be an array');
+  return arr.map((el) => {
+    if (Array.isArray(el[elem])) {
+      return el[elem][index];
+    } else {
+      return el[elem];
+    }
+  });
+};
+
+export const removeDuplicates = (arr) => {
+  if (!Array.isArray(arr)) throw new Error('Parameter must be an array');
+  return arr.reduce((acc, el) => {
+    if (!acc.includes(el)) {
+      acc.push(el);
+    }
+    return acc;
+  }, []);
+};
