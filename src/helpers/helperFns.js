@@ -31,18 +31,14 @@ export const AJAX = async (url, uploadData = undefined) => {
 };
 
 export const mappedArray = (arr, elem, index) => {
-  if (!Array.isArray(arr)) throw new Error('Parameter must be an array');
-  return arr.map((el) => {
-    if (Array.isArray(el[elem])) {
-      return el[elem][index];
-    } else {
-      return el[elem];
-    }
-  });
+  if (!Array.isArray(arr)) throw new Error('Parameter must be an array'); // Gaurd clause
+  return arr.map((el) =>
+    Array.isArray(el[elem]) ? el[elem][index] : el[elem]
+  );
 };
 
 export const removeDuplicates = (arr) => {
-  if (!Array.isArray(arr)) throw new Error('Parameter must be an array');
+  if (!Array.isArray(arr)) throw new Error('Parameter must be an array'); // Gaurd clause
   return arr.reduce((acc, el) => {
     if (!acc.includes(el)) {
       acc.push(el);
